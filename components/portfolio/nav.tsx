@@ -32,11 +32,17 @@ export default function Nav() {
         className={cn(
           "mx-auto flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]",
           scrolled
-            ? "max-w-5xl rounded-full bg-white/80 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.04)] border border-white/20 px-4 py-2"
-            : "max-w-7xl px-4 py-3"
+            ? "max-w-5xl rounded-full bg-white/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] border border-white/30 px-4 py-2"
+            : "max-w-7xl rounded-full bg-black/30 backdrop-blur-md border border-white/10 px-6 py-2.5"
         )}
       >
-        <a href="#home" className="text-sm font-semibold tracking-tight text-foreground">
+        <a
+          href="#home"
+          className={cn(
+            "text-sm font-semibold tracking-tight transition-colors duration-300",
+            scrolled ? "text-foreground" : "text-white"
+          )}
+        >
           LUMINA
         </a>
 
@@ -45,7 +51,12 @@ export default function Nav() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className={cn(
+                "text-sm transition-colors duration-300",
+                scrolled
+                  ? "text-muted-foreground hover:text-foreground"
+                  : "text-white/60 hover:text-white"
+              )}
             >
               {item.label}
             </a>
@@ -59,20 +70,23 @@ export default function Nav() {
         >
           <span
             className={cn(
-              "block w-5 h-px bg-foreground absolute transition-all duration-300",
-              mobileOpen ? "rotate-45" : "-translate-y-1.5"
+              "block w-5 h-px absolute transition-all duration-300",
+              mobileOpen ? "rotate-45 bg-foreground" : "-translate-y-1.5",
+              !mobileOpen && (scrolled ? "bg-foreground" : "bg-white")
             )}
           />
           <span
             className={cn(
-              "block w-5 h-px bg-foreground absolute transition-all duration-300",
-              mobileOpen ? "opacity-0" : "opacity-100"
+              "block w-5 h-px absolute transition-all duration-300",
+              mobileOpen ? "opacity-0" : "opacity-100",
+              !mobileOpen && (scrolled ? "bg-foreground" : "bg-white")
             )}
           />
           <span
             className={cn(
-              "block w-5 h-px bg-foreground absolute transition-all duration-300",
-              mobileOpen ? "-rotate-45" : "translate-y-1.5"
+              "block w-5 h-px absolute transition-all duration-300",
+              mobileOpen ? "-rotate-45 bg-foreground" : "translate-y-1.5",
+              !mobileOpen && (scrolled ? "bg-foreground" : "bg-white")
             )}
           />
         </button>
