@@ -5,8 +5,8 @@ import { motion } from "framer-motion"
 const contacts = [
   {
     label: "WhatsApp",
-    value: "+1 (312) 847-1928",
-    href: "https://wa.me/13128471928",
+    value: "+91 8500172172",
+    href: "https://wa.me/918500172172",
   },
   {
     label: "Instagram",
@@ -15,8 +15,8 @@ const contacts = [
   },
   {
     label: "Email",
-    value: "hello@lumina.com",
-    href: "mailto:hello@lumina.com",
+    value: "drishyadarpana@gmail.com",
+    href: "mailto:drishyadarpana@gmail.com",
   },
 ]
 
